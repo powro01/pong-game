@@ -33,6 +33,9 @@ const aiPoints = document.getElementById('aiPoints');
 let playerScore = 0;
 let aiScore = 0;
 
+const startButton = document.getElementById('start');
+const stopButton = document.getElementById('stop');
+
 
 function player() {
     ctx.fillStyle = '#2980b9';
@@ -101,6 +104,12 @@ canvas.addEventListener('mousemove', function(e) {
 
 });
 
+table();
+ball();
+gates();
+player();
+ai();
+
 
 function init() {
     table();
@@ -110,4 +119,13 @@ function init() {
     ai();
 }
 
-setInterval(init, 1000 / 60);
+startButton.addEventListener('click', function() {
+
+    var gameInit = setInterval(init, 1000 / 60);
+    console.log('clicked');
+    console.log(gameInit);
+});
+
+// stopButton.addEventListener('click', function() {
+//     clearInterval(gameInit);
+// })
